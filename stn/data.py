@@ -12,12 +12,6 @@ import skimage
 import matplotlib.pyplot as plt
 import angles
 
-# def oldmnist():
-#     (xtrn, ytrn), (xtst, ytst) = k.datasets.mnist.load_data()
-#     xtrn = xtrn.reshape([xtrn.shape[0],28,28,1]) / 255
-#     ytrn = np.array([[float(y == i) for i in range(10)] for y in ytrn])
-#     return (xtrn[:50000],ytrn[:50000],xtrn[50000:],ytrn[50000:])
-
 mnist_root = 'data/cache'
 
 class MNIST_noise:
@@ -158,14 +152,14 @@ def mnist(rotate=True, normalize=True, translate=False, scale=False, batch_size=
             root=mnist_root, train=True, download=True,
             transform=tvT.Compose(transforms)
         ),
-        batch_size=batch_size, shuffle=True, num_workers=16 if translate or scale else 0
+        batch_size=batch_size, shuffle=True, num_workers=16 if translate or scale else 4
     )
     test_loader = D.DataLoader(
         tvD.MNIST(
             root=mnist_root, train=False, # download absent
             transform=tvT.Compose(transforms)
         ),
-        batch_size=batch_size, shuffle=True, num_workers=16 if translate or scale else 0
+        batch_size=batch_size, shuffle=True, num_workers=16 if translate or scale else 4
     )
     return (train_loader, test_loader)
 
@@ -385,5 +379,3 @@ data_dict = {
     'cifar10': cifar10,
     'augment': augmented_cifar,
 }
-
-#%%
