@@ -2,7 +2,7 @@
 
 This is the code used for the experiments in https://arxiv.org/abs/2004.11678
 
-If you use this code, please cite it as:
+If you use this code, please cite the article as:
 
 L. Finnveden, Y. Jansson and T. Lindeberg (2021) "Understanding when spatial transformer networks do not support invariance, and what to do about it", Proc. International Conference on Pattern Recognition (ICPR 2020), pages 3427-3434, extended version in arXiv:2004.11678.
 
